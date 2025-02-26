@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		A990A2672D6FD46900320D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A990A24D2D6FD46700320D58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A990A2542D6FD46700320D58;
+			remoteInfo = SphereSquash;
+		};
+		A990A2712D6FD46900320D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A990A24D2D6FD46700320D58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A990A2542D6FD46700320D58;
+			remoteInfo = SphereSquash;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A990A2552D6FD46700320D58 /* SphereSquash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SphereSquash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A990A2662D6FD46900320D58 /* SphereSquashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SphereSquashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A990A2702D6FD46900320D58 /* SphereSquashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SphereSquashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A990A2572D6FD46700320D58 /* SphereSquash */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SphereSquash;
+			sourceTree = "<group>";
+		};
+		A990A2692D6FD46900320D58 /* SphereSquashTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SphereSquashTests;
+			sourceTree = "<group>";
+		};
+		A990A2732D6FD46900320D58 /* SphereSquashUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SphereSquashUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A990A2522D6FD46700320D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A990A2632D6FD46900320D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A990A26D2D6FD46900320D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A990A24C2D6FD46700320D58 = {
+			isa = PBXGroup;
+			children = (
+				A990A2572D6FD46700320D58 /* SphereSquash */,
+				A990A2692D6FD46900320D58 /* SphereSquashTests */,
+				A990A2732D6FD46900320D58 /* SphereSquashUITests */,
+				A990A2562D6FD46700320D58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A990A2562D6FD46700320D58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A990A2552D6FD46700320D58 /* SphereSquash.app */,
+				A990A2662D6FD46900320D58 /* SphereSquashTests.xctest */,
+				A990A2702D6FD46900320D58 /* SphereSquashUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A990A2542D6FD46700320D58 /* SphereSquash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A990A27A2D6FD46900320D58 /* Build configuration list for PBXNativeTarget "SphereSquash" */;
+			buildPhases = (
+				A990A2512D6FD46700320D58 /* Sources */,
+				A990A2522D6FD46700320D58 /* Frameworks */,
+				A990A2532D6FD46700320D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A990A2572D6FD46700320D58 /* SphereSquash */,
+			);
+			name = SphereSquash;
+			packageProductDependencies = (
+			);
+			productName = SphereSquash;
+			productReference = A990A2552D6FD46700320D58 /* SphereSquash.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A990A2652D6FD46900320D58 /* SphereSquashTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A990A27D2D6FD46900320D58 /* Build configuration list for PBXNativeTarget "SphereSquashTests" */;
+			buildPhases = (
+				A990A2622D6FD46900320D58 /* Sources */,
+				A990A2632D6FD46900320D58 /* Frameworks */,
+				A990A2642D6FD46900320D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A990A2682D6FD46900320D58 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A990A2692D6FD46900320D58 /* SphereSquashTests */,
+			);
+			name = SphereSquashTests;
+			packageProductDependencies = (
+			);
+			productName = SphereSquashTests;
+			productReference = A990A2662D6FD46900320D58 /* SphereSquashTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A990A26F2D6FD46900320D58 /* SphereSquashUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A990A2802D6FD46900320D58 /* Build configuration list for PBXNativeTarget "SphereSquashUITests" */;
+			buildPhases = (
+				A990A26C2D6FD46900320D58 /* Sources */,
+				A990A26D2D6FD46900320D58 /* Frameworks */,
+				A990A26E2D6FD46900320D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A990A2722D6FD46900320D58 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A990A2732D6FD46900320D58 /* SphereSquashUITests */,
+			);
+			name = SphereSquashUITests;
+			packageProductDependencies = (
+			);
+			productName = SphereSquashUITests;
+			productReference = A990A2702D6FD46900320D58 /* SphereSquashUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A990A24D2D6FD46700320D58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					A990A2542D6FD46700320D58 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					A990A2652D6FD46900320D58 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A990A2542D6FD46700320D58;
+					};
+					A990A26F2D6FD46900320D58 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A990A2542D6FD46700320D58;
+					};
+				};
+			};
+			buildConfigurationList = A990A2502D6FD46700320D58 /* Build configuration list for PBXProject "SphereSquash" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A990A24C2D6FD46700320D58;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A990A2562D6FD46700320D58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A990A2542D6FD46700320D58 /* SphereSquash */,
+				A990A2652D6FD46900320D58 /* SphereSquashTests */,
+				A990A26F2D6FD46900320D58 /* SphereSquashUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A990A2532D6FD46700320D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A990A2642D6FD46900320D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A990A26E2D6FD46900320D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A990A2512D6FD46700320D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A990A2622D6FD46900320D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A990A26C2D6FD46900320D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A990A2682D6FD46900320D58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A990A2542D6FD46700320D58 /* SphereSquash */;
+			targetProxy = A990A2672D6FD46900320D58 /* PBXContainerItemProxy */;
+		};
+		A990A2722D6FD46900320D58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A990A2542D6FD46700320D58 /* SphereSquash */;
+			targetProxy = A990A2712D6FD46900320D58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A990A2782D6FD46900320D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A990A2792D6FD46900320D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		A990A27B2D6FD46900320D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SphereSquash/SphereSquash.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SphereSquash/Preview Content\"";
+				DEVELOPMENT_TEAM = LMQWJK7G2N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BenLucasHeavyIndustries.SphereSquash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A990A27C2D6FD46900320D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SphereSquash/SphereSquash.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SphereSquash/Preview Content\"";
+				DEVELOPMENT_TEAM = LMQWJK7G2N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BenLucasHeavyIndustries.SphereSquash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A990A27E2D6FD46900320D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LMQWJK7G2N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BenLucasHeavyIndustries.SphereSquashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SphereSquash.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SphereSquash";
+			};
+			name = Debug;
+		};
+		A990A27F2D6FD46900320D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LMQWJK7G2N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BenLucasHeavyIndustries.SphereSquashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SphereSquash.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SphereSquash";
+			};
+			name = Release;
+		};
+		A990A2812D6FD46900320D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LMQWJK7G2N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BenLucasHeavyIndustries.SphereSquashUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SphereSquash;
+			};
+			name = Debug;
+		};
+		A990A2822D6FD46900320D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LMQWJK7G2N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BenLucasHeavyIndustries.SphereSquashUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SphereSquash;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A990A2502D6FD46700320D58 /* Build configuration list for PBXProject "SphereSquash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A990A2782D6FD46900320D58 /* Debug */,
+				A990A2792D6FD46900320D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A990A27A2D6FD46900320D58 /* Build configuration list for PBXNativeTarget "SphereSquash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A990A27B2D6FD46900320D58 /* Debug */,
+				A990A27C2D6FD46900320D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A990A27D2D6FD46900320D58 /* Build configuration list for PBXNativeTarget "SphereSquashTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A990A27E2D6FD46900320D58 /* Debug */,
+				A990A27F2D6FD46900320D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A990A2802D6FD46900320D58 /* Build configuration list for PBXNativeTarget "SphereSquashUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A990A2812D6FD46900320D58 /* Debug */,
+				A990A2822D6FD46900320D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A990A24D2D6FD46700320D58 /* Project object */;
+}
