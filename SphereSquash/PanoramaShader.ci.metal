@@ -161,36 +161,51 @@ extern "C" float4 panoramaShader(coreimage::sampler src, float w, float h, int m
         return input;
 
     } else if (mode == 3){
-        // Peirce Quincuncial Projection (replacing Triptych)
+        // Peirce Quincuncial Projection
+        // This branch implements an approximate inverse of the Peirce quincuncial mapping.
+        // (The ShaderToy version typically projects the sphere via stereographic projection
+        // and then maps the circle conformally to a square. Here we approximate the inverse.)
         float2 extent = float2(w, h);
-        // Map destination coordinates to normalized square [-1, 1]
+        // Convert the fragment coordinate to normalized square coordinates [-1,1]
         float2 uv = (src.coord() / extent) * 2.0 - 1.0;
         
-        // Convert square coordinates to circular coordinates using an approximate mapping
-        float2 circleUV = float2(uv.x * sqrt(1.0 - 0.5 * uv.y * uv.y),
-                                 uv.y * sqrt(1.0 - 0.5 * uv.x * uv.x));
+        // Inverse of the approximate square-to-circle conformal map:
+        // The forward map is often approximated by:
+        //   squareUV.x = z.x * sqrt(1.0 - 0.5*z.y*z.y)
+        //   squareUV.y = z.y * sqrt(1.0 - 0.5*z.x*z.x)
+        // Here we “undo” that mapping.
+        float denomX = sqrt(max(1.0 - 0.5 * uv.y * uv.y, 0.0001));
+        float denomY = sqrt(max(1.0 - 0.5 * uv.x * uv.x, 0.0001));
+        float2 z;
+        z.x = uv.x / denomX;
+        z.y = uv.y / denomY;
         
-        // Inverse stereographic projection from the plane (circleUV) to the sphere:
-        float r2 = dot(circleUV, circleUV);
-        float factor = 2.0 / (r2 + 1.0);
-        float3 spherePoint = float3(circleUV * factor, (r2 - 1.0) / (r2 + 1.0));
+        // Use the inverse stereographic projection to recover a point on the sphere.
+        float r = length(z);
+        float c = 2.0 * atan(r);
+        float3 spherePoint;
+        if(r > 0.0001) {
+            spherePoint = float3(sin(c) * z / r, cos(c));
+        } else {
+            spherePoint = float3(0.0, 0.0, 1.0);
+        }
         
-        // Optionally rotate the sphere point using theta and phi parameters:
+        // Optionally rotate the recovered sphere point using theta and phi.
         float3 forward = sphericalToCartesian(PI * theta, PI_2 * phi / 2.0);
         float3 right = normalize(cross(forward, float3(0.0, 1.0, 0.0)));
         float3 up = cross(right, forward);
         float3x3 rotationMatrix = float3x3(right, up, forward);
         spherePoint = rotationMatrix * spherePoint;
         
-        // Convert the rotated sphere point back into equirectangular coordinates:
+        // Finally, convert the (rotated) sphere point to equirectangular coordinates.
         float lon = atan2(spherePoint.z, spherePoint.x);
         float lat = asin(spherePoint.y);
         float2 equirectangularUV;
         equirectangularUV.x = (lon + M_PI) / (2.0 * M_PI);
         equirectangularUV.y = (lat + M_PI_2) / M_PI;
-        
         float2 samplePt = equirectangularUV * extent;
         return src.sample(samplePt);
+        
         
     }     else{
         return src.sample(src.coord());

@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var outputImage: NSImage?
     
     // Projection parameters
-    @State private var mode: Int = 0       // 0: Equirectangular, 1: Stereographic, 2: Perspective, 3: Quincuncial
+    @State private var mode: ProjectionMode = .equirectangular       // 0: Equirectangular, 1: Stereographic, 2: Perspective, 3: Quincuncial
     @State private var theta: Float = 0.0  // In degrees, range: -180...180
     @State private var phi: Float = 0.0    // In degrees, range: -90...90
     @State private var fov: Float = 180.0  // In degrees, range: 0...180
@@ -68,70 +68,76 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            // Display the output image
-            Group {
-                if let outputImage = outputImage {
+            if let outputImage = outputImage {
+                HStack{
+                    HStack{
+                        VStack{
+                            Spacer()
+                            Text("Phi: \(Int(phi))°")
+                                .rotationEffect(.degrees(-90))
+                        }
+                        DialSliderView(value: Binding(
+                            get: { Double(phi) },
+                            set: { newValue in phi = Float(newValue); applyFilter() }
+                        ), sliderRange: -90...90, orientation: .vertical)
+                            .frame(width: 50, alignment: .trailing)
+                    }
                     Image(nsImage: outputImage)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 600, maxHeight: 400)
-                } else {
-                    Text("No image loaded")
+                    Spacer()
+                }
+                VStack {
+                    HStack{
+                        Text("Theta: \(Int(theta))°")
+                        Spacer()
+                    }
+                    DialSliderView(value: Binding(
+                        get: { Double(theta) },
+                        set: { newValue in theta = Float(newValue); applyFilter() }
+                    ), sliderRange: -180...180, orientation: .horizontal)
+                }
+                // Buttons to load and save the image
+                HStack {
+                    Button("Load Image") { loadImage() }
+                    Button("Save Image") { saveImage() }
+                    Spacer()
+                }
+                .padding()
+                
+                // Projection mode selection
+                Picker("Projection Mode", selection: $mode) {
+                    Text("Equirectangular").tag(ProjectionMode.equirectangular)
+                    Text("Stereographic").tag(ProjectionMode.stereographic)
+                    Text("Perspective").tag(ProjectionMode.perspective)
+                    Text("Quincuncial").tag(ProjectionMode.quincuncial)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
+                .onChange(of: mode, perform: { _ in applyFilter() })
+                
+                // Parameter sliders for theta, phi, and fov
+                VStack {
+                    HStack {
+                        Text("FoV")
+                        Slider(value: Binding(
+                            get: { Double(fov) },
+                            set: { newValue in fov = Float(newValue); applyFilter() }
+                        ), in: 0...180)
+                        Text("\(Int(fov))°")
+                            .frame(width: 50, alignment: .trailing)
+                    }
+                }
+                .padding()
+            } else {
+                Button(action: { loadImage() }){
+                    Text("Click here to load a panorama")
                         .frame(width: 600, height: 400)
                         .border(Color.gray)
                 }
             }
-            .padding()
-            
-            // Buttons to load and save the image
-            HStack {
-                Button("Load Image") { loadImage() }
-                Button("Save Image") { saveImage() }
-            }
-            .padding()
-            
-            // Projection mode selection
-            Picker("Projection Mode", selection: $mode) {
-                Text("Equirectangular").tag(0)
-                Text("Stereographic").tag(1)
-                Text("Perspective").tag(2)
-                Text("Quincuncial").tag(3)
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.horizontal)
-            .onChange(of: mode, perform: { _ in applyFilter() })
-            
-            // Parameter sliders for theta, phi, and fov
-            VStack {
-                HStack {
-                    Text("Theta")
-                    Slider(value: Binding(
-                        get: { Double(theta) },
-                        set: { newValue in theta = Float(newValue); applyFilter() }
-                    ), in: -180...180)
-                    Text("\(Int(theta))°")
-                        .frame(width: 50, alignment: .trailing)
-                }
-                HStack {
-                    Text("Phi")
-                    Slider(value: Binding(
-                        get: { Double(phi) },
-                        set: { newValue in phi = Float(newValue); applyFilter() }
-                    ), in: -90...90)
-                    Text("\(Int(phi))°")
-                        .frame(width: 50, alignment: .trailing)
-                }
-                HStack {
-                    Text("FoV")
-                    Slider(value: Binding(
-                        get: { Double(fov) },
-                        set: { newValue in fov = Float(newValue); applyFilter() }
-                    ), in: 0...180)
-                    Text("\(Int(fov))°")
-                        .frame(width: 50, alignment: .trailing)
-                }
-            }
-            .padding()
+
         }
         .frame(minWidth: 800, minHeight: 700)
     }

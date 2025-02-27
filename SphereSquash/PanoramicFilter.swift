@@ -6,9 +6,16 @@
 //
 import CoreImage
 
+enum ProjectionMode: Int {
+    case equirectangular = 0,
+         stereographic = 1,
+         perspective = 2,
+         quincuncial = 3
+}
+
 class PanoramicFilter : CIFilter
 {
-    var mode : Int = 0
+    var mode : ProjectionMode = .equirectangular
     
     var theta_normalized : Float  = 0.0
     var phi_normalized : Float = 0.0
@@ -29,7 +36,7 @@ class PanoramicFilter : CIFilter
     }()
     
     //
-    public func setMode(_ mode: Int){
+    public func setMode(_ mode: ProjectionMode){
         self.mode = mode
     }
     
@@ -58,7 +65,7 @@ class PanoramicFilter : CIFilter
             return nil
         }
         //, Float(self.threshold)
-        let arguments = [inputImage, inputImage.extent.width, inputImage.extent.height, self.mode, self.theta_normalized, self.phi_normalized, self.fov_normalized] as [Any]
+        let arguments = [inputImage, inputImage.extent.width, inputImage.extent.height, self.mode.rawValue, self.theta_normalized, self.phi_normalized, self.fov_normalized] as [Any]
         
         //return Self.panoramaKernel.apply(extent: inputImage.extent, arguments: arguments)
         
