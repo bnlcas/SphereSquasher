@@ -71,32 +71,29 @@ struct ContentView: View {
             if let outputImage = outputImage {
                 HStack{
                     HStack{
-                        VStack{
-                            Spacer()
-                            Text("Phi: \(Int(phi))°")
-                                .rotationEffect(.degrees(-90))
-                        }
+                        Text("Phi: \(Int(phi))°")
+                            .rotationEffect(.degrees(-90))
+                            .frame(width: 100)
                         DialSliderView(value: Binding(
                             get: { Double(phi) },
                             set: { newValue in phi = Float(newValue); applyFilter() }
                         ), sliderRange: -90...90, orientation: .vertical)
-                            .frame(width: 50, alignment: .trailing)
+                        .frame(width: 25, height: 400)
                     }
                     Image(nsImage: outputImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: 600, maxHeight: 400)
+                        .frame(minWidth: 600, minHeight: 400)
                     Spacer()
                 }
-                VStack {
-                    HStack{
-                        Text("Theta: \(Int(theta))°")
-                        Spacer()
-                    }
+                HStack {
+                    Text("Theta: \(Int(theta))°")
+                        .frame(width: 120)
                     DialSliderView(value: Binding(
                         get: { Double(theta) },
                         set: { newValue in theta = Float(newValue); applyFilter() }
                     ), sliderRange: -180...180, orientation: .horizontal)
+                    Spacer()
                 }
                 // Buttons to load and save the image
                 HStack {
