@@ -20,7 +20,8 @@ struct ContentView: View {
 
     @State private var panStartTheta: Float? = nil
     @State private var panStartPhi: Float? = nil
-    
+    @StateObject private var shiftMonitor = ShiftKeyMonitor()
+
     @State private var fovValues: [ProjectionMode: Float] = [
         .equirectangular: 180,
         .stereographic: 180,
@@ -99,10 +100,12 @@ struct ContentView: View {
                                     panStartTheta = theta
                                     panStartPhi = phi
                                 }
-
+                                let isHorizontalOnly = shiftMonitor.shiftDown && (gesture.translation.width > gesture.translation.height)
+                                let isVerticalOnly = shiftMonitor.shiftDown && (gesture.translation.width < gesture.translation.height)
+                                
                                 let scale: Float = 1.0
-                                theta = (panStartTheta ?? theta) + Float(gesture.translation.width) * scale
-                                phi = (panStartPhi ?? phi) - Float(gesture.translation.height) * scale
+                                theta = (panStartTheta ?? theta) + (isVerticalOnly ? 0.0 : Float(gesture.translation.width)) * scale
+                                phi = (panStartPhi ?? phi) - (isHorizontalOnly ? 0.0 : Float(gesture.translation.height)) * scale
                                 
                                 // Clamp phi to its range.
                                 phi = min(max(phi, -90), 90)
@@ -114,34 +117,6 @@ struct ContentView: View {
                                 panStartTheta = nil
                                 panStartPhi = nil
                             })
-                /*
-                HStack{
-                    HStack{
-                        Text("Phi: \(Int(phi))°")
-                            .rotationEffect(.degrees(-90))
-                            .frame(width: 100)
-                        DialSliderView(value: Binding(
-                            get: { Double(phi) },
-                            set: { newValue in phi = Float(newValue); applyFilter() }
-                        ), sliderRange: -90...90, orientation: .vertical)
-                        .frame(width: 25, height: 400)
-                    }
-                    Image(nsImage: outputImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(minWidth: 600, minHeight: 400)
-                    Spacer()
-                }
-                HStack {
-                    Text("Theta: \(Int(theta))°")
-                        .frame(width: 120)
-                    DialSliderView(value: Binding(
-                        get: { Double(theta) },
-                        set: { newValue in theta = Float(newValue); applyFilter() }
-                    ), sliderRange: -180...180, orientation: .horizontal)
-                    Spacer()
-                }*/
-                // Buttons to load and save the image
                 HStack {
                     Button("Load Image") { loadImage() }
                     Button("Save Image") { saveImage() }
