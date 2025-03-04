@@ -20,7 +20,7 @@ class PanoramicFilter : CIFilter
     var theta_normalized : Float  = 0.0
     var phi_normalized : Float = 0.0
     var fov_normalized : Float = 1.0
-
+    
     //CIColorKernel -> CIKernel
     static var panoramaKernel : CIKernel = { () -> CIKernel in
         let url = Bundle.main.url(forResource: "PanoramaShader", withExtension: "ci.metallib")!
@@ -65,13 +65,13 @@ class PanoramicFilter : CIFilter
             return nil
         }
         //, Float(self.threshold)
-        let arguments = [inputImage, inputImage.extent.width, inputImage.extent.height, self.mode.rawValue, self.theta_normalized, self.phi_normalized, self.fov_normalized] as [Any]
+        let arguments = [inputImage.clampedToExtent(), inputImage.extent.width, inputImage.extent.height, self.mode.rawValue, self.theta_normalized, self.phi_normalized, self.fov_normalized] as [Any]
         
         //return Self.panoramaKernel.apply(extent: inputImage.extent, arguments: arguments)
-        
         return Self.panoramaKernel.apply(
-          extent: inputImage.extent,
-          roiCallback: {(index, rect) -> CGRect in return rect},
-          arguments: arguments)//[inputImage, threshold])
+            extent: inputImage.extent,
+            roiCallback: {(index, rect) -> CGRect in return rect},
+            arguments: arguments)!//[inputImage, threshold])
+        
     }
 }

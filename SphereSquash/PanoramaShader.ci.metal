@@ -87,6 +87,7 @@ extern "C" float4 panoramaShader(coreimage::sampler src, float w, float h, int m
     if(mode == 0){
         float2 extent = float2(w, h);
         float2 uv = fract(src.coord() / extent);// + float2(theta, phi));
+
         float2 uv_rotated = rotateEquirectangularSamplePoint(uv, 4.0 * theta, 2.0 * phi);// * float2(-1.0, 1.0) + float2(1.0,0.0);;
         float2 samplePt = uv_rotated * extent;// 2.0 * src.extent().wz;
         return src.sample(samplePt);//src.coord());

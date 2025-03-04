@@ -17,7 +17,25 @@ struct ContentView: View {
     @State private var mode: ProjectionMode = .equirectangular       // 0: Equirectangular, 1: Stereographic, 2: Perspective, 3: Quincuncial
     @State private var theta: Float = 0.0  // In degrees, range: -180...180
     @State private var phi: Float = 0.0    // In degrees, range: -90...90
-    @State private var fov: Float = 180.0  // In degrees, range: 0...180
+
+    @State private var panStartTheta: Float? = nil
+    @State private var panStartPhi: Float? = nil
+    
+    @State private var fovValues: [ProjectionMode: Float] = [
+        .equirectangular: 180,
+        .stereographic: 180,
+        .perspective: 90,
+        .quincuncial: 180
+    ]
+    
+    // A binding that returns the FOV for the current mode.
+    private var currentFov: Binding<Float> {
+        Binding<Float>(
+            get: { self.fovValues[self.mode] ?? 180 },
+            set: { self.fovValues[self.mode] = $0 }
+        )
+    }
+    
     
     let ciContext = CIContext()
     
@@ -40,8 +58,8 @@ struct ContentView: View {
         filter.setMode(mode)
         filter.setTheta(theta)
         filter.setPhi(phi)
-        filter.setFoV(fov)
-        
+        filter.setFoV(currentFov.wrappedValue)
+
         // Obtain the output CIImage and convert it to an NSImage for display
         if let outputCIImage = filter.outputImage,
            let cgImage = ciContext.createCGImage(outputCIImage, from: outputCIImage.extent) {
@@ -69,6 +87,34 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if let outputImage = outputImage {
+                Image(nsImage: outputImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: 600, minHeight: 400)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                // If this is the first update, record the starting values.
+                                if panStartTheta == nil || panStartPhi == nil {
+                                    panStartTheta = theta
+                                    panStartPhi = phi
+                                }
+
+                                let scale: Float = 1.0
+                                theta = (panStartTheta ?? theta) + Float(gesture.translation.width) * scale
+                                phi = (panStartPhi ?? phi) - Float(gesture.translation.height) * scale
+                                
+                                // Clamp phi to its range.
+                                phi = min(max(phi, -90), 90)
+                                
+                                applyFilter()
+                            }
+                            .onEnded { _ in
+                                // Reset the starting values when the gesture ends.
+                                panStartTheta = nil
+                                panStartPhi = nil
+                            })
+                /*
                 HStack{
                     HStack{
                         Text("Phi: \(Int(phi))°")
@@ -94,7 +140,7 @@ struct ContentView: View {
                         set: { newValue in theta = Float(newValue); applyFilter() }
                     ), sliderRange: -180...180, orientation: .horizontal)
                     Spacer()
-                }
+                }*/
                 // Buttons to load and save the image
                 HStack {
                     Button("Load Image") { loadImage() }
@@ -116,14 +162,19 @@ struct ContentView: View {
                 
                 // Parameter sliders for theta, phi, and fov
                 VStack {
-                    HStack {
-                        Text("FoV")
-                        Slider(value: Binding(
-                            get: { Double(fov) },
-                            set: { newValue in fov = Float(newValue); applyFilter() }
-                        ), in: 0...180)
-                        Text("\(Int(fov))°")
-                            .frame(width: 50, alignment: .trailing)
+                    if self.mode != .equirectangular {
+                        HStack {
+                            Text("FoV")
+                            Slider(value: Binding(
+                                get: { self.currentFov.wrappedValue },
+                                set: { newValue in
+                                    self.currentFov.wrappedValue = newValue
+                                    applyFilter()
+                                }
+                            ), in: 0...180)
+                            Text("\(Int(currentFov.wrappedValue))°")
+                                .frame(width: 50, alignment: .trailing)
+                        }
                     }
                 }
                 .padding()
